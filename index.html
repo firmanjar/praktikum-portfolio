@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #0f172a;
+        color: #e2e8f0;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #3b82f6;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #3b82f6;
+      }
+
+      @keyframes glow-rotate {
+        0% {
+          transform: rotate(0deg) scale(1);
+          filter: drop-shadow(0 0 10px #fcfcfd);
+        }
+        50% {
+          transform: rotate(1deg) scale(1.05);
+          filter: drop-shadow(0 0 20px #e5e4eb) brightness(1.2);
+        }
+        100% {
+          transform: rotate(0deg) scale(1);
+          filter: drop-shadow(0 0 10px #f1f0f8);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .animate-glow-rotate {
+        animation: glow-rotate 4s ease-in-out infinite;
+      }
+
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+     
+    <!-- Navigation -->
+<nav class="bg-slate-900/80 backdrop-blur-md fixed w-full z-10">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="text-2xl font-bold text-white">
+        PORTO<span class="text-blue-400">FOLIO</span>
+      </div>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="nav-link text-white hover:text-blue-400 transition">Home</a>
+        <a href="#about" class="nav-link text-white hover:text-blue-400 transition">About</a>
+        <a href="#skills" class="nav-link text-white hover:text-blue-400 transition">Skills</a>
+        <a href="#projects" class="nav-link text-white hover:text-blue-400 transition">Projects</a>
+        <a href="#contact" class="nav-link text-white hover:text-blue-400 transition">Contact</a>
+      </div>
+      <!-- Hamburger Menu -->
+      <button class="md:hidden text-white" id="menu-toggle">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex-col mt-4 space-y-4">
+      <a href="#home" class="mobile-link block text-white hover:text-blue-400 transition">Home</a>
+      <a href="#about" class="mobile-link block text-white hover:text-blue-400 transition">About</a>
+      <a href="#skills" class="mobile-link block text-white hover:text-blue-400 transition">Skills</a>
+      <a href="#projects" class="mobile-link block text-white hover:text-blue-400 transition">Projects</a>
+      <a href="#contact" class="mobile-link block text-white hover:text-blue-400 transition">Contact</a>
+    </div>
+  </div>
+</nav>
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6">
+      <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            Hallo, Saya <span class="text-blue-400">Firman Fajar Pratama</span>
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+            THE <span class="text-blue-400">CAGUR</span>
+          </h2>
+          <p class="text-lg mb-8 text-slate-300">
+            Apa aja bisa, gaada yang ga bisa jika bersamamu.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#contact"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition"
+              >Hire Me</a
+            >
+            <a
+              href="#projects"
+              class="border border-blue-400 text-blue-400 hover:bg-blue-400/10 px-6 py-3 rounded-lg font-medium transition"
+              >View Work</a
+            >
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div
+            class="relative w-64 h-64 md:w-80 md:h-80 overflow-hidden bg-transparent animate-float">
+            <img
+              src="img/foto_firman.png"
+              alt="Your Name"
+              class="w-full h-full object-contain animate-glow-rotate" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-slate-800/50">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 section-title">ABOUT</h2>
+        <div class="flex flex-col md:flex-row">
+       <div class="md:w-1/3 mb-8 md:mb-0 transform transition-all duration-300 hover:-translate-y-2">
+  <div class="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-lg shadow-blue-500/20 border border-slate-700 hover:shadow-blue-500/30 transition-all duration-300 overflow-hidden">
+    
+    <!-- Foto Full -->
+    <img
+      src="img/foto firman blur 2.jpeg"
+      alt="Profile Photo"
+      class="w-full h-80 object-cover"
+    />
+
+    <!-- Overlay untuk teks dan icon -->
+    <div class="absolute inset-0 bg-slate-900/60 p-6 flex flex-col justify-end">
+      <!-- Header dengan icon -->
+      <div class="flex items-center mb-2">
+        <div class="p-2 rounded-lg bg-blue-500/10 mr-4">
+          <i class="fas fa-user-circle text-blue-400 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+          PROFILE PICTURE
+        </h3>
+      </div>
+    </div>
+
+    <!-- Dekorasi tambahan -->
+    <div class="absolute top-0 right-0 w-16 h-16 -mr-4 -mt-4 rounded-full bg-blue-500/10 blur-xl"></div>
+  </div>
+</div>
+
+
+          <div class="md:w-2/3 md:pl-10">
+            <h3 class="text-xl font-semibold mb-4">WHO AM I?</h3>
+            <p class="mb-6 text-slate-300">
+              Saya seorang cagur yang nekat berkuliah di dunia IT,
+              dan didunia IT saya dapat menemukan tantangan baru yang melebihi
+              lari,renang dan binsik lainya. Saya juga telah membuat beberapa
+              project website.
+            </p>
+            <p class="mb-6 text-slate-300">
+              Walaupun saya seorang pemula, saya tidak akan pernah berhenti
+              belajar dan belajar, saya tidak ambisius tapi saya menerapkan
+              suatu prinsip yaitu "takut mati jangan hidup, takut hidup mati
+              sekalian" yang berarti jangan takut untuk mencoba sesuatu, namun
+              jika takut jangan pernah sekalipun kau mencoba.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 section-title">SKILLS</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-6">TECHNICAL SKILLS</h3>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>UI/UX Design</span>
+                  <span>75%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 75%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>HTML/CSS</span>
+                  <span>80%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 80%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>JavaScript</span>
+                  <span>65%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 65%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>React</span>
+                  <span>75%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-6">PROFESSIONAL SKILLS</h3>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>Communication</span>
+                  <span>95%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 95%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>Teamwork</span>
+                  <span>85%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 85%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>Problem Solving</span>
+                  <span>90%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 90%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span>Creativity</span>
+                  <span>90%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                  <div
+                    class="bg-blue-600 h-2.5 rounded-full"
+                    style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-slate-800/50">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 section-title">PROJECTS</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+         
+          <!-- link project 1 -->
+          <a href="https://pangsitku.netlify.app/" target="_blank" class="block">
+            <!-- Project 1 -->
+            <div
+              class="bg-slate-700 rounded-lg overflow-hidden hover:translate-y-2 transition duration-300 hover:shadow-lg">
+              <div
+                class="h-48 bg-slate-600 flex items-center justify-center overflow-hidden">
+                <img
+                  src="img/project pangsitku.png"
+                  alt="E-commerce Preview"
+                  class="h-full w-full object-cover" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2 text-white">
+                  E-commerce Website
+                </h3>
+                <p class="text-slate-300 mb-4">
+                  A fully responsive e-commerce platform with custom cart
+                  functionality.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-slate-600 px-3 py-1 rounded-full text-sm text-white"
+                    >HTML</span
+                  >
+                  <span
+                    class="bg-slate-600 px-3 py-1 rounded-full text-sm text-white"
+                    >Tailwind CSS</span
+                  >
+                  <span
+                    class="bg-slate-600 px-3 py-1 rounded-full text-sm text-white"
+                    >JavaScript</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+
+           
+           <!-- link project 1 -->
+          <a href="https://lovely-travesseiro-ce0e53.netlify.app/" target="_blank" class="block">
+            <!-- Project 1 -->
+            <div
+              class="bg-slate-700 rounded-lg overflow-hidden hover:translate-y-2 transition duration-300 hover:shadow-lg">
+              <div
+                class="h-48 bg-slate-600 flex items-center justify-center overflow-hidden">
+                <img
+                  src="img/project portfolio.png"
+                  alt="portfolio Preview"
+                  class="h-full w-full object-cover" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2 text-white">
+                  Portfolio Website
+                </h3>
+                <p class="text-slate-300 mb-4">
+                  A minimalist portfolio site with smooth animations.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="bg-slate-600 px-3 py-1 rounded-full text-sm text-white"
+                    >HTML</span
+                  >
+                  <span
+                    class="bg-slate-600 px-3 py-1 rounded-full text-sm text-white"
+                    >Tailwind CSS</span
+                  >
+                  <span
+                    class="bg-slate-600 px-3 py-1 rounded-full text-sm text-white"
+                    >JavaScript</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 section-title">CONTACT</h2>
+        <div class="flex flex-col md:flex-row gap-10">
+          <div class="md:w-1/2">
+            <h3 class="text-xl font-semibold mb-4">GET IN TOUCH</h3>
+            <p class="text-slate-300 mb-6">
+              Feel free to reach out for collaborations or just a friendly
+              hello. I'll try my best to respond as soon as possible!
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="text-blue-400 mr-4 mt-1">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">Location</h4>
+                  <p class="text-slate-300">Bekasi City, Indonesia</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-blue-400 mr-4 mt-1">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">Email</h4>
+                  <p class="text-slate-300">ngasaldikit@gmail.com</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="text-blue-400 mr-4 mt-1">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">Phone</h4>
+                  <p class="text-slate-300">089670396750</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-blue-600 transition">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-blue-600 transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-blue-600 transition">
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-blue-600 transition">
+                <i class="fab fa-dribbble"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-8 px-6">
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="text-2xl font-bold text-white">PORTO<span class="text-blue-400">FOLIO</div></span>
+            <p class="text-slate-400 mt-2">© 2025 All Rights Reserved</p>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="text-slate-400 hover:text-blue-400 transition"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="text-slate-400 hover:text-blue-400 transition"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="text-slate-400 hover:text-blue-400 transition"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="#" class="text-slate-400 hover:text-blue-400 transition"
+              ><i class="fab fa-dribbble"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // script untuk tombol 
+      const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+    </script>
+  </body>
+</html>
